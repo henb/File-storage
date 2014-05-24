@@ -1,0 +1,30 @@
+<%- model_class = Yourfile -%>
+<div class="page-header">
+  <h1>Your Files</h1>
+</div>
+<div class="page-header">
+   <%= render partial:"yourfiles/fileform", locals:{yourfile: @yourfile} %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>File id</th>
+      <th>File url</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @yourfiles.each do |yourfile| %>
+      <tr>
+        <td><%= yourfile.file_id %></td>
+        <td><%=link_to clear_url(yourfile.file),clear_url(yourfile.file) %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                     yourfile_path(yourfile), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<center>
+<%= will_paginate @yourfiles %>

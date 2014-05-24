@@ -1,0 +1,13 @@
+<%= form_for(yourfile, :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="control-group">
+    <%= f.label :file_id, :class => 'control-label' %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.file_field :file, :class => 'file_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+<% end %>
